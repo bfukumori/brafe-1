@@ -5,62 +5,135 @@
   box-sizing: border-box;
 }
 
+
+/* GERAL */
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #252525;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 /* clearfix */
-.clearfix::after, .clearfix::before {
+.container::after, .container::before {
   content: '';
   display: table;
   clear: both;
+}
+
+/* GRID */
+.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  display: block;
+  min-height: 1px;
+}
+
+.grid-1 {
+  width: calc(8.333% - 20px);
+}
+
+.grid-2 {
+  width: calc(16.666% - 20px);
+}
+
+.grid-3 {
+  width: calc(25% - 20px);
+}
+
+.grid-4 {
+  width: calc(33.333% - 20px);
+}
+
+.grid-5 {
+  width: calc(41.666% - 20px);
+}
+
+.grid-6 {
+  width: calc(50% - 20px);
+}
+
+.grid-7 {
+  width: calc(58.333% - 20px);
+}
+
+.grid-8 {
+  width: calc(66.666% - 20px);
+}
+
+.grid-9 {
+  width: calc(75% - 20px);
+}
+
+.grid-10 {
+  width: calc(83.333% - 20px);
+}
+
+.grid-11 {
+  width: calc(91.666% - 20px);
+}
+
+.grid-12 {
+  width: calc(100% - 20px);
+}
+
+@media (max-width: 739px) {
+  .container {
+    max-width: 300px;
+  }
+  .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: none;
+  }
 }
 
 /* MENU */
 
 .menu {
   background-color: #252525;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
-.menu-container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.menu-logo {
-  display: block;
-  float: left;
-  margin-left: 10px;
-}
-
-.menu-nav {
+.menu-nav ul {
   float: right;
-  margin-right: 10px;
 }
 
-.menu-nav li {
+.menu-nav ul li {
   display: inline-block;
 }
 
 .menu-nav a {
-  display: block;
-  padding: 10px;
   text-decoration: none;
   color: #fff;
   font-size: 1.125em;
+  padding: 10px;
+  margin-left: 10px;
+  display: block;
 }
 
-@media (max-width:739px) {
+@media (max-width: 739px) {
   .menu-logo {
-    float: none;
-    text-align: center;
+    width: fit-content;
+    margin: 0 auto 10px;
   }
-  .menu-nav {
+  .menu-nav ul {
     float: none;
-    clear: both;
-    text-align: center;
+  }
+  .menu-nav ul li a {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 9px;
   }
 }
 
@@ -68,9 +141,9 @@ body {
 .intro {
   background: url(../img/bg-intro.jpg) no-repeat center center;
   background-size: cover;
+  color: #fff;
   padding: 150px 0;
   text-align: center;
-  color: #fff;
 }
 
 .intro h1 {
@@ -92,9 +165,9 @@ body {
   font-size: 1.125em;
 }
 
-@media (max-width:739px) {
+@media (max-width: 739px) {
   .intro {
-    padding: 60px 0;
+    padding: 60px;
   }
 }
 
@@ -103,26 +176,10 @@ body {
   padding: 60px 0;
 }
 
-.sobre-container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 .sobre h2 {
-  text-align: center;
   font-size: 2.25em;
+  text-align: center;
   margin-bottom: 60px;
-}
-
-.sobre-item {
-  width: 460px;
-  float: left;
-  margin: 0 10px;
-}
-
-.sobre-item img {
-  display: block;
-  max-width: 100%;
 }
 
 .sobre-item h3 {
@@ -130,65 +187,39 @@ body {
   font-weight: normal;
   font-size: 2.25em;
   background-color: #252525;
-  width: 220px;
   color: #fff;
   text-align: center;
   line-height: 1em;
+  position: relative;
+  width: 220px;
   padding: 5px 0 10px 0;
   top: -25px;
-  position: relative;
 }
 
 .sobre > p {
   font-size: 1.25em;
   line-height: 1.4em;
   font-style: italic;
+  max-width: 460px;
   text-align: center;
   margin: 20px auto;
-  max-width: 460px;
-}
-
-@media (min-width:740px) and (max-width: 980px) {
-  .sobre-container {
-    max-width: 720px;
-  }
-  .sobre-item {
-    width: 340px;
-  }
-}
-
-@media (max-width:739px) {
-  .sobre-container {
-    max-width: 300px;
-  }
-  .sobre-item {
-    width: 300px;
-    margin: 0 auto;
-  }
 }
 
 /* PRODUTOS */
 .produtos {
   background-color: #e7e4d8;
-  padding: 60px 0;
   border-top: 3px solid #d6d3c8;
   border-bottom: 3px solid #d6d3c8;
-}
-
-.produtos-container {
-  max-width: 960px;
-  margin: 0 auto;
+  padding: 60px 0;
 }
 
 .produtos-item {
-  width: 300px;
-  float: left;
-  margin: 0 10px 20px 10px;
+  margin-bottom: 40px;
 }
 
 .produtos-item h2 {
-  text-align: center;
   font-size: 2.25em;
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -199,9 +230,9 @@ body {
   height: 100px;
   border-radius: 50%;
   background-color: currentColor ;
-  margin: 20px auto;
   border: 5px solid #e7e4d8;
   box-shadow: 0 0 0 10px currentColor;
+  margin: 20px auto;
 }
 
 h2.produtos-paulista::before {
@@ -222,60 +253,26 @@ h2.produtos-mineiro::before {
 }
 
 .produtos-btn {
-  width: 180px;
   border: 3px solid;
   color: #252525;
   text-decoration: none;
-  display: block;
   font-size: 1.125em;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  width: 180px;
+  display: block;
   padding: 15px 0;
-  margin: 20px auto 0 auto ;
-}
-
-@media (min-width:740px) and (max-width: 980px) {
-  .produtos-container {
-    max-width: 720px;
-  }
-  .produtos-item {
-    width: 220px;
-  }
-}
-
-@media (max-width:739px) {
-  .produtos-container {
-    max-width: 300px;
-  }
-  .produtos-item {
-    margin: 0 auto 20px auto;
-  }
+  margin: 0 auto;
 }
 
 /* LOCAIS */
 .locais {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px 0;
+  padding: 60px 0;
 }
 
 .locais-item {
-  clear: both;
-  margin: 60px auto;
-}
-
-.locais-item img {
-  width: 460px;
-  float: left;
-  display: block;
-  margin: 0 10px;
-}
-
-.locais-item > div {
-  width: 460px;
-  float: left;
-  margin: 0 10px;
+  margin-bottom: 40px;
 }
 
 .locais-item h2 {
@@ -296,43 +293,13 @@ h2.produtos-mineiro::before {
   text-decoration: none;
   border: 3px solid;
   color: #252525;
-  padding: 10px 30px;
-}
-
-@media (min-width:740px) and (max-width: 980px) {
-  .locais {
-    max-width: 720px;
-  }
-  .locais-item > div, .locais img {
-    width: 340px;
-  }
-}
-
-@media (max-width:739px) {
-  .locais {
-    max-width: 300px;
-  }
-  .locais-item > div, .locais-item img {
-    width: 300px;
-    margin: 0px;
-  }
+  padding: 10px 20px;
 }
 
 /* ASSINE */
 .assine {
   background-color: #e7e4d8;
   padding: 30px 0;
-}
-
-.assine-container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.assine-info {
-  width: 460px;
-  margin: 0 10px;
-  float: left;
 }
 
 .assine-info h2 {
@@ -344,23 +311,17 @@ h2.produtos-mineiro::before {
   font-style: italic;
 }
 
-.assine form {
-  width: 460px;
-  margin: 0 10px;
-  float: left;
-}
-
 .assine form label {
   display: none;
 }
 
 .assine input {
-  width: 320px;
   border: 3px solid #252525;
   background: none;
   font-size: 1.5em;
   font-style: italic;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  width: calc(100% - 140px);
   padding: 10px;
   float: left;
 }
@@ -370,29 +331,17 @@ h2.produtos-mineiro::before {
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-transform: uppercase;
   font-size: 1.5em;
-  width: 140px;
-  padding: 13px 0;
   color: #fff;
   border: none;
   cursor: pointer;
-}
-
-@media (min-width:740px) and (max-width: 980px) {
-  .assine-container {
-    max-width: 720px;
-  }
-  .assine-info, .assine form, .assine input {
-    width: 340px;
-  }
+  width: 140px;
+  padding: 13px 0px;
 }
 
 @media (max-width:739px) {
-  .assine-container {
-    max-width: 300px;
-  }
-  .assine-info, .assine form, .assine input {
-    width: 300px;
-    margin: 10px 0 0 0;
+  .assine button, .assine input {
+    font-size: 1em;
+    margin-top: 10px;
   }
 }
 
@@ -402,34 +351,18 @@ h2.produtos-mineiro::before {
   padding: 40px 0;
 }
 
-.footer-container {
-  max-width: 960px;
-  margin: 0 auto;
+.footer img {
+  float: right;
 }
 
 .footer p {
-  float: left;
-  margin: 0 10px;
   font-size: 1.125em;
   line-height: 1.4em;
 }
 
-.footer img {
-  float: right;
-  margin: 0 10px;
-  display: block;
-}
-
 @media (max-width:739px) {
-  .footer-container {
-    max-width: 300px;
-  }
-  .footer p {
-    float: none;
-    margin: 0px;
-  }
   .footer img {
     float: none;
-    margin: 20px 0;
+    margin-top: 20px;
   }
 }
