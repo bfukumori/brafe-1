@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 
 /* GERAL */
 body {
@@ -20,97 +24,30 @@ img {
 .container {
   max-width: 960px;
   margin: 0 auto;
+  display: flex;
 }
 
-/* clearfix */
-.container::after, .container::before {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-/* GRID */
-.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
-  margin-left: 10px;
-  margin-right: 10px;
-  float: left;
-  display: block;
-  min-height: 1px;
-}
-
-.grid-1 {
-  width: calc(8.333% - 20px);
-}
-
-.grid-2 {
-  width: calc(16.666% - 20px);
-}
-
-.grid-3 {
-  width: calc(25% - 20px);
-}
-
-.grid-4 {
-  width: calc(33.333% - 20px);
-}
-
-.grid-5 {
-  width: calc(41.666% - 20px);
-}
-
-.grid-6 {
-  width: calc(50% - 20px);
-}
-
-.grid-7 {
-  width: calc(58.333% - 20px);
-}
-
-.grid-8 {
-  width: calc(66.666% - 20px);
-}
-
-.grid-9 {
-  width: calc(75% - 20px);
-}
-
-.grid-10 {
-  width: calc(83.333% - 20px);
-}
-
-.grid-11 {
-  width: calc(91.666% - 20px);
-}
-
-.grid-12 {
-  width: calc(100% - 20px);
-}
-
-@media (max-width: 739px) {
-  .container {
-    max-width: 300px;
-  }
-  .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
-    width: 100%;
-    margin-left: 0px;
-    margin-right: 0px;
-    float: none;
-  }
+.flex-item {
+  flex: 1;
+  margin: 0 10px;
 }
 
 /* MENU */
-
 .menu {
   background-color: #252525;
   padding: 15px 0;
 }
 
-.menu-nav ul {
-  float: right;
+.menu .container {
+  align-items: center;
 }
 
-.menu-nav ul li {
-  display: inline-block;
+.menu-nav {
+  margin-right: 10px;
+}
+
+.menu-nav ul {
+  display: flex;
 }
 
 .menu-nav a {
@@ -118,23 +55,6 @@ img {
   color: #fff;
   font-size: 1.125em;
   padding: 10px;
-  margin-left: 10px;
-  display: block;
-}
-
-@media (max-width: 739px) {
-  .menu-logo {
-    width: fit-content;
-    margin: 0 auto 10px;
-  }
-  .menu-nav ul {
-    float: none;
-  }
-  .menu-nav ul li a {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 9px;
-  }
 }
 
 /* MAIN */
@@ -163,12 +83,6 @@ img {
 .intro p {
   font-style: italic;
   font-size: 1.125em;
-}
-
-@media (max-width: 739px) {
-  .intro {
-    padding: 60px;
-  }
 }
 
 /* SOBRE */
@@ -200,9 +114,9 @@ img {
   font-size: 1.25em;
   line-height: 1.4em;
   font-style: italic;
+  margin: 20px auto;
   max-width: 460px;
   text-align: center;
-  margin: 20px auto;
 }
 
 /* PRODUTOS */
@@ -250,6 +164,7 @@ h2.produtos-mineiro::before {
 .produtos-item p {
   font-size: .875em;
   line-height: 1.4em;
+  text-align: center;
 }
 
 .produtos-btn {
@@ -263,7 +178,7 @@ h2.produtos-mineiro::before {
   width: 180px;
   display: block;
   padding: 15px 0;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 
 /* LOCAIS */
@@ -273,6 +188,11 @@ h2.produtos-mineiro::before {
 
 .locais-item {
   margin-bottom: 40px;
+}
+
+.locais-img, .locais-info {
+  margin: 0 10px;
+  flex: 1;
 }
 
 .locais-item h2 {
@@ -302,8 +222,13 @@ h2.produtos-mineiro::before {
   padding: 30px 0;
 }
 
+.assine form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .assine-info h2 {
-  font: 2.25em;
+  font-size: 2.25em;
 }
 
 .assine-info p {
@@ -321,9 +246,9 @@ h2.produtos-mineiro::before {
   font-size: 1.5em;
   font-style: italic;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  width: calc(100% - 140px);
   padding: 10px;
-  float: left;
+  flex: 1;
+  outline: none;
 }
 
 .assine button {
@@ -334,15 +259,8 @@ h2.produtos-mineiro::before {
   color: #fff;
   border: none;
   cursor: pointer;
-  width: 140px;
-  padding: 13px 0px;
-}
-
-@media (max-width:739px) {
-  .assine button, .assine input {
-    font-size: 1em;
-    margin-top: 10px;
-  }
+  flex: 1;
+  padding: 13px;
 }
 
 /* FOOTER */
@@ -351,18 +269,49 @@ h2.produtos-mineiro::before {
   padding: 40px 0;
 }
 
-.footer img {
-  float: right;
-}
-
 .footer p {
   font-size: 1.125em;
   line-height: 1.4em;
 }
 
-@media (max-width:739px) {
-  .footer img {
-    float: none;
+.footer-img {
+  margin-right: 10px;
+}
+
+/* MEDIA QUERY MOBILE */
+@media (max-width: 739px) {
+  .container {
+    flex-direction: column;
+    max-width: 300px;
+  }
+  .flex-item {
+    margin: 0;
+  }
+  .menu-nav {
     margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .intro {
+    padding: 60px 0;
+  }
+  .produtos-item p {
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+  .assine-info {
+    margin-bottom: 20px;
+  }
+  .assine-info h2 {
+    font-size: 2em;
+  }
+  .assine-info p {
+    font-size: 1.4em;
+  }
+  .footer p {
+    font-size: .9em;
+    margin-bottom: 20px;
+  }
+  .footer-img {
+    align-self: center;
   }
 }
