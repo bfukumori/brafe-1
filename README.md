@@ -4,4 +4,6 @@ Inicialmente o site foi construído do zero utilizando HTML e CSS puro, com floa
 Posteriormente ele foi refeito mais 3 vezes:
 1 - utililizando um sistema de grid;
 2 - utilizando flexbox;
-3 - utilizando Bootstrap.
+3 - utilizando Bootstrap*.
+
+*não fiz o commit do Bootstrap, pois utilizei apenas para estudo e teria que modificar várias estruturas para adequar o conteúdo ao framework.
